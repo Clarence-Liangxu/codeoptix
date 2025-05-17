@@ -34,4 +34,13 @@ vqdmlal_n_s16 | https://developer.arm.com/architectures/instruction-sets/intrins
 vqdmlal_n_s32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vqdmlal_n_s32
 vqdmlsl_n_s16 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vqdmlsl_n_s16
 vqdmlsl_n_s32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vqdmlsl_n_s32
-vaba_s8 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vaba_s8
+vamax_f16 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vamax_f16
+vamaxq_f16 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vamaxq_f16
+vamax_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vamax_f32
+vamaxq_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vamaxq_f32
+vamaxq_f64 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vamaxq_f64
+vamin_f16 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vamin_f16
+vaminq_f16 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vaminq_f16
+vamin_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vamin_f32
+vaminq_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vaminq_f32
+vaminq_f64 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vaminq_f64
