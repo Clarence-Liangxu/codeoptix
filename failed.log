@@ -1,0 +1,8 @@
+vmls_f64 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmls_f64
+vmlaq_f64 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmlaq_f64
+vmlaq_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmlaq_f32
+vmls_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmls_f32
+vmlsq_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmlsq_f32
+vmla_f32 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmla_f32
+vmla_f64 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmla_f64
+vmlsq_f64 | https://developer.arm.com/architectures/instruction-sets/intrinsics/vmlsq_f64
