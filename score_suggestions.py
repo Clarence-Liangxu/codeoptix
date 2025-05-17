@@ -1,0 +1,1 @@
+# apply cost comparison to suggestions
