@@ -1,0 +1,10 @@
+.decl match_vaddq_s8(func: symbol, loop: symbol, type: symbol, intrinsic: symbol)
+.output match_vaddq_s8
+
+match_vaddq_s8(F, L, "int8_t", "vaddq_s8") :-
+    loop_stmt(F, L),
+    array_assign(F, _, C, A, B, "+"),
+    array_type(C, "int8_t"),
+    array_type(A, "int8_t"),
+    array_type(B, "int8_t"),
+    loop_length(F, L, 16).

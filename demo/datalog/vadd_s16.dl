@@ -1,0 +1,10 @@
+.decl match_vadd_s16(func: symbol, loop: symbol, type: symbol, intrinsic: symbol)
+.output match_vadd_s16
+
+match_vadd_s16(F, L, "int16_t", "vadd_s16") :-
+    loop_stmt(F, L),
+    array_assign(F, _, C, A, B, "+"),
+    array_type(C, "int16_t"),
+    array_type(A, "int16_t"),
+    array_type(B, "int16_t"),
+    loop_length(F, L, 4).
