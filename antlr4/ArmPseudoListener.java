@@ -37,6 +37,26 @@ public interface ArmPseudoListener extends ParseTreeListener {
 	 */
 	void exitAssignment(ArmPseudoParser.AssignmentContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ArmPseudoParser#tupleAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterTupleAssignment(ArmPseudoParser.TupleAssignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArmPseudoParser#tupleAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitTupleAssignment(ArmPseudoParser.TupleAssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArmPseudoParser#tupleElements}.
+	 * @param ctx the parse tree
+	 */
+	void enterTupleElements(ArmPseudoParser.TupleElementsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArmPseudoParser#tupleElements}.
+	 * @param ctx the parse tree
+	 */
+	void exitTupleElements(ArmPseudoParser.TupleElementsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ArmPseudoParser#loopStmt}.
 	 * @param ctx the parse tree
 	 */
@@ -87,15 +107,99 @@ public interface ArmPseudoListener extends ParseTreeListener {
 	 */
 	void exitFunctionCall(ArmPseudoParser.FunctionCallContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ArmPseudoParser#expression}.
+	 * Enter a parse tree produced by the {@code IdentifierExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression(ArmPseudoParser.ExpressionContext ctx);
+	void enterIdentifierExpr(ArmPseudoParser.IdentifierExprContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ArmPseudoParser#expression}.
+	 * Exit a parse tree produced by the {@code IdentifierExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression(ArmPseudoParser.ExpressionContext ctx);
+	void exitIdentifierExpr(ArmPseudoParser.IdentifierExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BinaryExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterBinaryExpr(ArmPseudoParser.BinaryExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BinaryExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitBinaryExpr(ArmPseudoParser.BinaryExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code SliceExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterSliceExpr(ArmPseudoParser.SliceExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code SliceExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitSliceExpr(ArmPseudoParser.SliceExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code IntExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterIntExpr(ArmPseudoParser.IntExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code IntExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitIntExpr(ArmPseudoParser.IntExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ParenExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParenExpr(ArmPseudoParser.ParenExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ParenExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParenExpr(ArmPseudoParser.ParenExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FuncExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterFuncExpr(ArmPseudoParser.FuncExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FuncExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitFuncExpr(ArmPseudoParser.FuncExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code IndexExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterIndexExpr(ArmPseudoParser.IndexExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code IndexExpr}
+	 * labeled alternative in {@link ArmPseudoParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitIndexExpr(ArmPseudoParser.IndexExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArmPseudoParser#slice}.
+	 * @param ctx the parse tree
+	 */
+	void enterSlice(ArmPseudoParser.SliceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArmPseudoParser#slice}.
+	 * @param ctx the parse tree
+	 */
+	void exitSlice(ArmPseudoParser.SliceContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ArmPseudoParser#indexList}.
 	 * @param ctx the parse tree
@@ -126,4 +230,14 @@ public interface ArmPseudoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitType(ArmPseudoParser.TypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ArmPseudoParser#scopedIdentifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterScopedIdentifier(ArmPseudoParser.ScopedIdentifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ArmPseudoParser#scopedIdentifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitScopedIdentifier(ArmPseudoParser.ScopedIdentifierContext ctx);
 }
