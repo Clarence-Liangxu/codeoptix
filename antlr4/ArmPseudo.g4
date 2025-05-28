@@ -4,6 +4,7 @@ program: statement+ EOF;
 
 statement
     : assignment ';'
+    | constantDecl ';'
     | tupleAssignment ';'
     | functionCall ';'
     | loopStmt
@@ -11,10 +12,19 @@ statement
     | caseStmt
     ;
 
+constantDecl
+    : 'constant' type IDENTIFIER '=' expression
+    ;
+
 assignment
     : type IDENTIFIER ('=' expression)?
-    | IDENTIFIER slice? '=' expression
-    | IDENTIFIER '[' indexList ']' '=' expression
+    | lvalue '=' expression
+    ;
+
+lvalue
+    : IDENTIFIER slice?
+    | IDENTIFIER '[' indexList ']'
+    | IDENTIFIER '[' ']'
     ;
 
 tupleAssignment
@@ -30,7 +40,7 @@ loopStmt
     ;
 
 ifStmt
-    : 'if' condition 'then' block ('else' block)?
+    : 'if' expression 'then' block ('else' ifStmt | 'else' block)?
     ;
 
 caseStmt
@@ -54,7 +64,7 @@ functionCall
     ;
 
 expression
-    : expression op=('EOR' | 'AND' | 'OR' | '*' | '/' | '+' | '-' | '<<' | '>>' | '&' | '|' | ':') expression # BinaryExpr
+    : expression op=('EOR' | 'AND' | 'OR' | 'DIV' | 'MOD' | '*' | '/' | '+' | '-' | '<<' | '>>' | '&' | '|' | ':' | '==' | '!=') expression # BinaryExpr
     | functionCall                                                                                          # FuncExpr
     | IDENTIFIER slice                                                                                      # SliceExpr
     | IDENTIFIER '[' indexList ']'                                                                          # IndexExpr
