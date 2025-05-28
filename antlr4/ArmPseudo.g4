@@ -5,6 +5,7 @@ program: statement+ EOF;
 statement
     : assignment ';'
     | constantDecl ';'
+    | typedAssignment ';'
     | tupleAssignment ';'
     | functionCall ';'
     | loopStmt
@@ -14,6 +15,10 @@ statement
 
 constantDecl
     : 'constant' type IDENTIFIER '=' expression
+    ;
+
+typedAssignment
+    : IDENTIFIER IDENTIFIER '=' expression
     ;
 
 assignment
@@ -65,6 +70,7 @@ functionCall
 
 expression
     : expression op=('EOR' | 'AND' | 'OR' | 'DIV' | 'MOD' | '*' | '/' | '+' | '-' | '<<' | '>>' | '&' | '|' | ':' | '==' | '!=') expression # BinaryExpr
+    | 'if' expression 'then' expression 'else' expression                                                  # TernaryExpr
     | functionCall                                                                                          # FuncExpr
     | IDENTIFIER slice                                                                                      # SliceExpr
     | IDENTIFIER '[' indexList ']'                                                                          # IndexExpr
