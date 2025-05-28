@@ -64,7 +64,7 @@ expression
     ;
 
 slice
-    : '<' INTEGER ':' INTEGER '>'
+    : '<' expression ':' expression '>'
     ;
 
 indexList
@@ -76,7 +76,7 @@ argumentList
     ;
 
 type
-    : 'bits' '(' (IDENTIFIER | INTEGER) ')'
+    : 'bits' '(' expression ')'
     | 'integer'
     ;
 
