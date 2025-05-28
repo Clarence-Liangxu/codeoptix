@@ -55,12 +55,13 @@ functionCall
 
 expression
     : expression op=('EOR' | 'AND' | 'OR' | '*' | '/' | '+' | '-' | '<<' | '>>' | '&' | '|' | ':') expression # BinaryExpr
-    | functionCall                                                                            # FuncExpr
-    | IDENTIFIER slice                                                                        # SliceExpr
-    | IDENTIFIER '[' indexList ']'                                                            # IndexExpr
-    | IDENTIFIER                                                                               # IdentifierExpr
-    | '(' expression ')'                                                                      # ParenExpr
-    | INTEGER                                                                                 # IntExpr
+    | functionCall                                                                                          # FuncExpr
+    | IDENTIFIER slice                                                                                      # SliceExpr
+    | IDENTIFIER '[' indexList ']'                                                                          # IndexExpr
+    | IDENTIFIER '[' ']'                                                                                    # EmptyIndexExpr
+    | IDENTIFIER                                                                                            # IdentifierExpr
+    | '(' expression ')'                                                                                    # ParenExpr
+    | INTEGER                                                                                               # IntExpr
     ;
 
 slice
