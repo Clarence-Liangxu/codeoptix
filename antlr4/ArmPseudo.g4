@@ -8,6 +8,7 @@ statement
     | functionCall ';'
     | loopStmt
     | ifStmt
+    | caseStmt
     ;
 
 assignment
@@ -32,6 +33,14 @@ ifStmt
     : 'if' condition 'then' block ('else' block)?
     ;
 
+caseStmt
+    : 'case' expression 'of' '{' whenClause+ '}'
+    ;
+
+whenClause
+    : 'when' expression block
+    ;
+
 condition
     : expression
     ;
@@ -45,7 +54,7 @@ functionCall
     ;
 
 expression
-    : expression op=('EOR' | '*' | '/' | '+' | '-' | '<<' | '>>' | '&' | '|' | ':') expression # BinaryExpr
+    : expression op=('EOR' | 'AND' | 'OR' | '*' | '/' | '+' | '-' | '<<' | '>>' | '&' | '|' | ':') expression # BinaryExpr
     | functionCall                                                                            # FuncExpr
     | IDENTIFIER slice                                                                        # SliceExpr
     | IDENTIFIER '[' indexList ']'                                                            # IndexExpr
@@ -67,7 +76,7 @@ argumentList
     ;
 
 type
-    : 'bits' '(' INTEGER ')'
+    : 'bits' '(' (IDENTIFIER | INTEGER) ')'
     | 'integer'
     ;
 
@@ -79,3 +88,4 @@ IDENTIFIER: [a-zA-Z_] [a-zA-Z_0-9]*;
 INTEGER: [0-9]+;
 WS: [ \t\r\n]+ -> skip;
 COMMENT: '//' ~[\r\n]* -> skip;
+
